@@ -1,13 +1,39 @@
 import logo from './logo.svg';
 import './App.css';
-import Counter from './Counter';
+import UseRef01 from './UseRef01';
+
+
+function App(){
+  return(
+    <UseRef01/>
+  );
+}
+export default App;
+
+
+//06 ArrayRender
+// function App(){
+//   return(
+//     <ArrayRender1/>
+//   );
+// }
+// export default App;
+
+//05 InputState
+// function App(){
+//   return(
+//     <InputState/>
+//   );
+// }
+
+// export default App;
 
 //04 useState - 버튼 동적 구현하기
-function App(){
-  return (<Counter/>)
-}
+// function App(){
+//   return (<Counter/>)
+// }
 
-export default App;
+// export default App;
 
 //03 props : 두 컴포넌트 사이의 데이터 전송
 // function App(){
