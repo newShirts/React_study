@@ -1,14 +1,114 @@
-import logo from './logo.svg';
 import './App.css';
-import UseRef01 from './UseRef01';
+import React, {useState, useRef} from 'react';
+import UserList from './UserList';
+import ArrayAdd from './ArrayAdd';
 
 
 function App(){
+
+  const [inputs,setIputs] = useState({username:"", email:""})
+  const{username,email} = inputs;
+  
+  const onChange= evt=>{
+    //evt.target은 onChange 이벤트가 설정된 ArrayAdd.js의 input 태그를 가리킴  
+    const{name,value} = evt.target; 
+    setIputs({
+      ...inputs, //9번째 줄의 inputs 값 복사
+      [name]: value
+    })
+    
+  }
+
+  const [users,setUsers] = useState([
+    {
+        id: 1, 
+        username: 'user1',
+        email: 'user1@gmail.com'
+    },
+    {
+        id: 2, 
+        username: 'user2',
+        email: 'user2@gmail.com'
+    },
+    {
+        id: 3, 
+        username: 'user3',
+        email: 'user3@gmail.com'
+    }
+  ]
+)
+  const nextId = useRef(4)
+  const onCreate = ()=>{
+    const user = {
+      id: nextId.current,
+      username,
+      email
+    }
+
+    setUsers(users.concat(user))
+    setIputs({
+      username: "",
+      email: "",
+    })
+
+    nextId.current +=1
+  }
+
+const onRemove = id =>{
+  setUsers(users.filter(user => user.id!==id))
+}
+  
   return(
-    <UseRef01/>
-  );
+    <>
+      <ArrayAdd
+        username={username}
+        email={email}
+        onChange={onChange}
+        onCreate={onCreate}
+        />
+      
+      <UserList users={users} onRemove={onRemove}/>
+    </>
+  )
 }
 export default App;
+
+
+// function App(){
+
+//   const users = [
+//     {
+//         id: 1, 
+//         username: 'user1',
+//         email: 'user1@gmail.com'
+//     },
+//     {
+//         id: 2, 
+//         username: 'user2',
+//         email: 'user2@gmail.com'
+//     },
+//     {
+//         id: 3, 
+//         username: 'user3',
+//         email: 'user3@gmail.com'
+//     }
+// ]
+
+//   return(
+//     <UserList1 users={users}/>
+//   );
+// }
+
+// export default App;
+
+
+//07 UseRef
+// function App(){
+//   return(
+//     <UseRef01/>
+//   );
+// }
+// export default App;
 
 
 //06 ArrayRender
