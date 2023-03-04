@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 function InputState(){
 
-//[현재상태변수, setter함수(추후 값을 업데이트)] = useState초기값
+//[현재상태변수, setter함수(추후 값을 업데이트)] = useState(초기값)
     const[text, setText] = useState('');
     const onChange = (e)=>
     {console.log(e)
