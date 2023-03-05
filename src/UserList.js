@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 function User({propUser, onDeleteClick, onToggleClick}){
     //console.log(propUser)
 
     // 2. propUser 작성 반복을 피하여 비구조화 할당 방식으로 작성
     const{username, email, id, active} = propUser
+    useEffect(
+        ()=>{
+            console.log("화면에 나타남") //mount:초기화면 렌더링 + 등록버튼 클릭시
+            return () => {console.log("화면에 사라짐")} //unmount: 삭제버튼 클릭시
+        },[]
+    )
     return(
         <div>
             <b style={{cursor:'pointer', color: active? 'red':'black'}} 
@@ -41,4 +47,4 @@ function UserList({propUsers,onDelete, toggleClick}){
     )
 }
 
-export default UserList;
+export default React.memo(UserList);
