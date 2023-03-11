@@ -1,41 +1,55 @@
 
-
-//useRef와 useEffect 활용 예제
-import React ,{useEffect, useRef} from 'react';
+// MathQuiz - UserRef, UseEffect 연습
+import React from 'react';
+import MathQuiz from './MathQuiz';
 import './App.css';
 
 function App(){
-  
-  const inputRef = useRef();
-  
-
-  useEffect(()=>{
-      console.log(inputRef);
-      inputRef.current.focus();
-     },[]
-  )
-
-  const loginAlert= ()=>{
-    alert("Welcome! ${inputRef.current.value}")
-    inputRef.current.focus();
-  }
+ 
 
   return(
-    
-   <div className="App">
-    <header className="App-header">
-      <input ref={inputRef} type="text" placeholder="id"/>
-      <input type="text" placeholder="password"/>
-      <button onClick={loginAlert}>Login</button>
-    </header>
-   </div>
+    <MathQuiz/>
     
   )
-
 }
 
-
 export default App;
+
+// //useRef와 useEffect 활용 예제
+// import React ,{useEffect, useRef} from 'react';
+// import './App.css';
+
+// function App(){
+  
+//   const inputRef = useRef(); //효과를 주고 싶은 태그를 지정
+  
+//   useEffect(()=>{
+//       console.log(inputRef);
+//       inputRef.current.focus();
+//      },[] //웹사이트에 들어오자마자 첫 화면에서 렌더링 될 때 id 인풋창에 focus
+//   )
+
+//   const loginAlert= ()=>{
+//     alert(inputRef.current.value + "님 환영합니다!")
+//     inputRef.current.focus(); //loginAlert 함수 이후에 선택된 태그에 focus를 주기
+//   }
+
+//   return(
+    
+//    <div className="App">
+//     <header className="App-header">
+//       <input ref={inputRef} type="text" placeholder="id"/>
+//       <input type="password" placeholder="password"/>
+//       <button onClick={loginAlert}>Login</button>
+//     </header>
+//    </div>
+    
+//   )
+
+// }
+
+
+// export default App;
 
 //UseEffect 예제2
 // function App() {
@@ -190,7 +204,7 @@ export default App;
 //     }
 // ]
 
-//   return(
+//   return( //users배열을 UserList1-2의 props로 전달
 //     <UserList1 users={users}/>
 //   );
 // }
