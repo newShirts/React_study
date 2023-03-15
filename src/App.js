@@ -1,19 +1,33 @@
-//useReducer
 import React from "react";
-import ReducerCounter from "./ReducerCounter";
+import Game from "./Game";
 
 function App(){
 
   return(
-    <div>
-     <ReducerCounter step={1} min={-3} max={5}/>
-     <ReducerCounter step={5} min={-10} max={10}/>
-    </div>
+    <Game/>
   )
- 
+
 }
 
 export default App;
+
+
+
+// //useReducer
+// import React from "react";
+// import ReducerCounter from "./ReducerCounter";
+
+// function App(){
+
+//   return(
+//     <div>
+//      <ReducerCounter step={1} min={-3} max={5}/>
+//      <ReducerCounter step={5} min={-10} max={10}/>
+//     </div>
+//   )
+// }
+
+// export default App;
 
 // // MathQuiz - UserRef, UseEffect 연습
 // import React from 'react';

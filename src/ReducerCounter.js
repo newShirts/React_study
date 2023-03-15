@@ -18,6 +18,7 @@ function reducer(state,action){
 }
 
 function ReducerCounter({step=1, min=0, max=10}){
+    
 //1. useReducer() 작성 - 상단에 준비시킨 파라미터 reducer()와 initialState 사용!
 const [state, dispatch] =useReducer(reducer,initialState)
 
