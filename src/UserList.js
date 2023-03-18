@@ -32,7 +32,7 @@ function User({propUser, onDeleteClick, onToggleClick}){
 }
 
 
-function UserList({propUsers,onDelete, toggleClick}){
+function UserList({propUsers,deleteClick, toggleClick}){
 //console.log(propUsers)
 //두 번씩 출력되는 이유는 index.js의 <React.StrictMode> 때문이다.
 
@@ -40,7 +40,7 @@ function UserList({propUsers,onDelete, toggleClick}){
         <div>
             {/* User라는 하위 컴포넌트(파라미터)에 propUser, key, onDeletClick라는 props 이름으로 전송 */}
            {propUsers.map( u => 
-           (<User propUser={u} key={u.id} onDeleteClick={onDelete} onToggleClick={toggleClick}/>))
+           (<User propUser={u} key={u.id} onDeleteClick={deleteClick} onToggleClick={toggleClick}/>))
 
             }
         </div>
